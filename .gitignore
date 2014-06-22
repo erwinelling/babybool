@@ -42,3 +42,8 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+# From Heroku 
+# https://devcenter.heroku.com/articles/getting-started-with-django
+venv
+staticfiles
