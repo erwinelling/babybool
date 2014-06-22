@@ -36,6 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Added by me
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,6 +57,40 @@ ROOT_URLCONF = 'babybool.urls'
 
 WSGI_APPLICATION = 'babybool.wsgi.application'
 
+# Django-allauth settings
+# http://www.sarahhagstrom.com/2013/09/the-missing-django-allauth-tutorial/
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    # Required by allauth template tags
+    "django.core.context_processors.request",
+    # allauth specific context processors
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
+)
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+# auth and allauth settings
+LOGIN_REDIRECT_URL = '/'
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': ['email',],
+    }
+}
+
+ROOT_URLCONF = 'babybool.urls'
+
+WSGI_APPLICATION = 'babybool.wsgi.application'
+
+AUTH_PROFILE_MODULE = "babypage.UserProfile"
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
