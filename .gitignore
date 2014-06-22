@@ -47,3 +47,6 @@ docs/_build/
 # https://devcenter.heroku.com/articles/getting-started-with-django
 venv
 staticfiles
+
+# Added by me
+*.sqlite3
