@@ -43,7 +43,7 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-# From Heroku 
+# From Heroku Getting Started Guide
 # https://devcenter.heroku.com/articles/getting-started-with-django
 venv
 staticfiles
